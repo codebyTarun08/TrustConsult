@@ -1,103 +1,133 @@
+"use client";
+import React from "react";
+import { motion } from "framer-motion";
+import HighLightText from "@/components/HighLightText";
+import Link from "next/link";
+import CTAButton from "@/components/CTAButton";
 import Image from "next/image";
+import Category from "@/components/Home/Category";
+import Consult from "@/components/Home/Consult";
+import CallToAction from "@/components/Home/CallToAction";
+import Footer from "@/components/common/Footer";
+const Home = () => {
+  // Variants for animations
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
 
-export default function Home() {
+  const staggerContainer = {
+    hidden: {},
+    show: {
+      transition: { staggerChildren: 0.2 },
+    },
+  };
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <>
+    <div className="font-inter text-white flex justify-center bg-gray-900 scroll-smooth">
+      <div className="w-11/12 max-w-maxContent flex justify-center items-center flex-col mt-20 relative">
+        <div className="rounded-full shadow-circle2 flex items-center justify-center absolute left-5 top-60 -z-10 opacity-70"></div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+        {/* Hero Section */}
+        <motion.section
+          variants={staggerContainer}
+          initial="hidden"
+          animate="show"
+          className="flex flex-row w-11/12 relative my-20"
+        >
+          {/* Left Content */}
+          <motion.div
+            variants={fadeUp}
+            className="tab1 flex flex-col w-1/2 gap-y-3"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <h2 className="mt-5 text-3xl font-crimson">
+              Find the Right <HighLightText text={"Consultant"} /> in Minutes
+            </h2>
+            <p className="font-crimson font-semibold w-3/5 my-10">
+              From legal advice to career coaching, book trusted experts in just
+              a few clicks
+            </p>
+            <div className="flex gap-x-4">
+              <motion.div whileHover={{ scale: 0.95 }}>
+                <CTAButton
+                  text={"Browse Consultants"}
+                  flag={true}
+                  linkto={"home"}
+                />
+              </motion.div>
+              <motion.div whileHover={{ scale: 0.95 }}>
+                <CTAButton
+                  text={"Book An Appointment"}
+                  flag={false}
+                  linkto={"home"}
+                />
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Right Image */}
+          <motion.div
+            variants={fadeUp}
+            className="w-1/2 flex justify-center tab2"
           >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+            <Image src="/HomeImages/2nd.png" width={400} height={100} alt="" />
+          </motion.div>
+        </motion.section>
+
+        <div className="rounded-full shadow-circle1 flex items-center justify-center absolute  top-[650px] -z-10 opacity-70"></div>
+
+        {/* CTA Button */}
+        <Link href="book">
+          <motion.button
+            whileHover={{ scale: 0.95, boxShadow: "0px 4px 20px rgba(255,0,0,0.4)" }}
+            transition={{ duration: 0.2 }}
+            className="w-52 h-14 bg-gradient-to-tr bg-cyan-400/40 font-inter text-white rounded-full border-b-2 border-b-red-300 my-10"
+          >
+            Book Appointment
+          </motion.button>
+        </Link>
+
+        {/* Video Section */}
+        <motion.video
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          src="/banner.mp4"
+          className="w-4/5 shadow-[20px_20px_30px_10px_rgba(66,170,245,0.3)] rounded-xl"
+          muted
+          autoPlay
+          loop
+        ></motion.video>
+
+        {/* Consult Section */}
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={fadeUp}
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          <Consult />
+        </motion.div>
+
+        {/* Category Section */}
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={fadeUp}
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <Category />
+        </motion.div>
+
+        {/* Optional Call to Action */}
+        <CallToAction />
+      </div>
     </div>
+    <Footer/>
+    </>
   );
-}
+};
+
+export default Home;
