@@ -5,7 +5,7 @@ import EditInformation from '@/components/Dashboard/profile/EditInformation'
 import CompleteProfile from '@/components/Dashboard/Consultant/CompleteProfile'
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-const page = () => {
+const Page = () => {
   const { user } = useSelector((state) => (state.profile));
   const [isAccount, setIsAccount] = useState(true);
   return (
@@ -89,4 +89,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
