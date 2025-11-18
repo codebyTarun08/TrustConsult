@@ -1,12 +1,11 @@
 import Consultant from '@/models/consultantModel';
 import databaseConnection from '@/lib/dbConfig';
 import { NextResponse } from 'next/server';
-
+import Availability from '@/models/availabilityModel'
 export async function GET(request){
     try {
         databaseConnection();
         const id = request.headers.get('x-user-id')
-        console.log(id)
         if(!id){
             return NextResponse.json(
                 {error:"Id is required"},
@@ -14,7 +13,6 @@ export async function GET(request){
             )
         }
         const consultant = await Consultant.findOne({consultantId:id}).populate({path:"availability"}).exec()
-        console.log(consultant)
         if(!consultant){
             return NextResponse.json({message:"Consultant not existed"},{success:204});
         }

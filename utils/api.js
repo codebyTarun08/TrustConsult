@@ -24,6 +24,7 @@ export const CONSULTANT_ENDPOINTS={
     CREATEPROFILE:`${BASE_URL}/api/consultant/createProfile`,
     GETCONSULTANT:`${BASE_URL}/api/consultant/getConsultant`
 }
+
 export const CLIENT_ENDPOINTS={
     GETALLCONSULTANTS:`${BASE_URL}/api/client/getAllConsultants`,
     GETCATEGORY: `${BASE_URL}/api/client/getCategories`,

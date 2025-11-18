@@ -39,7 +39,7 @@ export async function POST(request) {
 
     await sendOtpVerificationEmail(email, otp);
 
-    console.log("OTP Created:", otpBody);
+   // console.log("OTP Created:", otpBody);
 
     return NextResponse.json(
       {

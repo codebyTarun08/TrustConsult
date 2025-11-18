@@ -36,49 +36,61 @@ const ChangeProfilePicture = () => {
           setLoading(true)
           dispatch(updateProfilePicture(formData))
         } catch (error) {
-          console.log("Issue in Changing Picture")
+          console.error("Issue in Changing Picture")
         }finally{
           setLoading(false)
         }
     }
 
     return (
-        <div className='flex flex-col gap-6 justify-center items-center '>
+      <div className="flex flex-col items-center justify-center p-4">
+        <div className="w-full max-w-3xl rounded-md p-4 sm:p-6 flex flex-col lg:flex-row items-center gap-6">
+          <img
+            className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 object-cover rounded-full border-4 border-blue-200/60 shadow-lg"
+            src={previewSource || user?.image}
+            alt={user?.firstName || "Profile"}
+          />
 
-          <div className='flex flex-col lg:flex-row gap-4 items-center justify-around p-10 rounded-md w-2/3'>
-            <img 
-            className='w-32 h-32 md:w-40 md:h-40 object-cover rounded-full border-4 border-blue-200/60 shadow-lg object-center' 
-            width={120} 
-            height={120} 
-            src={previewSource || user?.image } 
-            alt={`${user?.firstName}`} 
-            />
-            <div className='flex flex-col gap-4 ml-4 border-t lg:border-l lg:border-t-0 border-richblack-400 p-5 pl-10'>
-              <p className='text-lg font-semibold font-inter text-center text-blue-400'>Change Profile Picture</p>
-              <span className='flex gap-6 mt-5'>
-                    <input
-                    type="file"
-                    accept="image/*"
-                    onChange={handleFileChange}
-                    ref={fileInputRef}
-                    style={{ display: "none" }}
-                    />
-                    <button 
-                    className='px-6 py-1 rounded-md bg-richblack-700 cursor-pointer border-b border-richblack-200'
-                    onClick={() => fileInputRef.current.click()}
-                    >Select</button>
-                    <button 
-                    className='cursor-pointer px-6 py-1 rounded-md bg-yellow-300 text-black'
-                    onClick={uploadHandler}>
-                    {
-                      loading ? "Uploading..." : "Upload"
-                    }
-                    </button>
-              </span>
+          <div className="flex-1 flex flex-col items-center lg:items-start gap-4 w-full">
+            <p className="text-lg font-semibold text-center lg:text-left text-blue-400">
+              Change Profile Picture
+            </p>
+
+            <div className="w-full flex flex-col sm:flex-row items-center sm:items-stretch gap-3">
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleFileChange}
+                ref={fileInputRef}
+                style={{ display: "none" }}
+                aria-hidden
+              />
+
+              <button
+                type="button"
+                className="w-full sm:w-auto px-4 py-2 rounded-md bg-richblack-700 border-b border-richblack-200 text-white"
+                onClick={() => fileInputRef.current?.click()}
+                aria-label="Select profile picture"
+              >
+                Select
+              </button>
+
+              <button
+                type="button"
+                className={`w-full sm:w-auto px-4 py-2 rounded-md text-black ${
+                  loading ? "bg-yellow-200" : "bg-yellow-300"
+                }`}
+                onClick={uploadHandler}
+                disabled={!imageFile || loading}
+                aria-label="Upload profile picture"
+              >
+                {loading ? "Uploading..." : "Upload"}
+              </button>
             </div>
           </div>
         </div>
-  )
+      </div>
+    )
 }
 
 export default ChangeProfilePicture

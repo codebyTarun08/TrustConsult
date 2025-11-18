@@ -2,7 +2,11 @@ import mongoose from "mongoose";
 
 const availabilitySchema = new mongoose.Schema(
   {
-    consultant: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+    consultant: { 
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User", 
+      required: true 
+    },
    // date: { type: Date, required: true },
     timeSlots: [
       {
@@ -13,7 +17,9 @@ const availabilitySchema = new mongoose.Schema(
       }
     ]
   },
-  { timestamps: true }
+  { 
+    timestamps: true 
+  }
 );
 
 export default mongoose.models.Availability || mongoose.model("Availability", availabilitySchema);

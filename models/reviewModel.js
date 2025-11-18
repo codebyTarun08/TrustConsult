@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-
+import Consultant from "./consultantModel"
 const reviewSchema  = new mongoose.Schema(
     {
         bookingId:{

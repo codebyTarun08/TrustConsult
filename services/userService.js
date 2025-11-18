@@ -51,11 +51,11 @@ export function signupUser(signupData, router) {
                 throw new Error(response.data.message)
             }
             toast.success("User Signup Successfully");
-            console.log("USER DATA---> ", response)
+            //console.log("USER DATA---> ", response)
             router.push('/auth/login')
         } catch (error) {
             console.log("SIGNUP API ERROR---->", error);
-            toast.error("SIGNUP FAILED")
+            toast.error("Signup Failed, Please try again");
             router.push("/auth/signup")
         } finally {
             dispatch(setLoading(false))
@@ -68,7 +68,7 @@ export function signupUser(signupData, router) {
 export function loginUser(formData,router) {
     return async (dispatch) => {
         const toastId = toast.loading("Loading...");
-        console.log(formData)
+        //console.log(formData)
         dispatch(setLoading(true))
         try {
             const response = await apiConnector(
@@ -85,11 +85,11 @@ export function loginUser(formData,router) {
             dispatch(setToken(response?.data?.token))
             dispatch(setUser(response?.data?.user))
             toast.success("User Login Successfully");
-            console.log("USER DATA---> ", response.data.user)
+            //console.log("USER DATA---> ", response.data.user)
             router.push('/dashboard/profile')
         } catch (error) {
             console.log("Login API ERROR---->", error);
-            toast.error("Login FAILED")
+            toast.error("Login Failed , Please try again")
         } finally {
             dispatch(setLoading(false))
             toast.dismiss(toastId)
@@ -149,7 +149,7 @@ export function updateProfileData(data){
 export function changePassword(data){
     return async(dispatch)=>{
         const toastId=toast.loading("Loading...");
-        console.log(data);
+        //console.log(data);
         try {
             const response = await apiConnector(
                 "POST",

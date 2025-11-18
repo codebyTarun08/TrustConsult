@@ -43,7 +43,7 @@ const DropDownMenu = ({ setShow }) => {
   return (
     <motion.div
       ref={dropdownRef} // Attach the ref to the root element of the dropdown
-      className='absolute right-0 top-14 mt-2 h-fit p-4 bg-gray-800 rounded-lg shadow-xl border border-gray-700 z-50 overflow-hidden'
+      className='absolute right-0 top-0 w-full mt-2 h-fit p-4 bg-gray-800 rounded-lg shadow-xl border border-gray-700 z-50 overflow-hidden'
       variants={menuVariants}
       initial="hidden"
       animate="visible"
@@ -55,8 +55,9 @@ const DropDownMenu = ({ setShow }) => {
           src={user?.image}
           alt={`${user?.firstName}`}
         />
-        <p className='text-3xl text-white font-bold mt-4'>
-          Welcome <span className='bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-orange-600'>{user?.firstName}!</span>
+        <p className='text-2xl flex gap-2 text-white font-bold mt-4'>
+           <span>Hello</span>
+           <span className='bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-orange-600'>{user?.firstName}!</span>
         </p>
       </div>
 

@@ -23,7 +23,7 @@ const ConsultantBookingsPage = () => {
       const res = await fetch("/api/consultant/getBookings", {
         method: "GET",
         headers: {
-          "x-user-id": localStorage.getItem("consultantId"), // ✅ ensure consultantId is stored after login
+          "x-user-id": localStorage.getItem("consultantId"),
         },
       });
 
@@ -98,7 +98,7 @@ const ConsultantBookingsPage = () => {
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`pb-2 text-lg font-semibold ${
+            className={`cursor-pointer pb-2 text-lg font-semibold ${
               activeTab === tab
                 ? "text-blue-400 border-b-4 border-blue-500"
                 : "text-gray-400 hover:text-white"
@@ -167,14 +167,28 @@ const ConsultantBookingsPage = () => {
                 <div className="flex space-x-3">
                   <button
                     onClick={() => handleBookingAction(b._id, "accept")}
-                    className="flex-1 bg-green-600 hover:bg-green-700 py-2 rounded-lg font-semibold"
+                   // className="cursor-pointer flex-1 bg-green-600 hover:bg-green-700 py-2 rounded-lg font-semibold"
+                      className="cursor-pointer text-center text-green-500 font-semibold 
+                            rounded-xl py-2 flex-1
+                            backdrop-blur-md bg-green-500/10 
+                            border border-green-400/40 
+                            shadow-md shadow-green-400/20
+                            transition-all duration-300
+                            hover:shadow-green-500/30 hover:bg-green-500/20"
                   >
                     <FontAwesomeIcon icon={faCheckCircle} className="mr-2" />
                     Accept
                   </button>
                   <button
                     onClick={() => handleBookingAction(b._id, "cancel")}
-                    className="flex-1 bg-red-600 hover:bg-red-700 py-2 rounded-lg font-semibold"
+                    //className="cursor-pointer flex-1 bg-red-600 hover:bg-red-700 py-2 rounded-lg font-semibold"
+                    className="cursor-pointer text-center text-red-500 font-semibold 
+                            rounded-xl py-2  flex-1
+                            backdrop-blur-md bg-red-500/10 
+                            border border-red-500/40 
+                            shadow-md shadow-red-500/20 
+                            transition-all duration-300
+                            hover:shadow-red-500/30 hover:bg-red-500/20"
                   >
                     <FontAwesomeIcon icon={faTimesCircle} className="mr-2" />
                     Reject

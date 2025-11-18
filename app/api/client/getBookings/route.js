@@ -1,7 +1,7 @@
 import databaseConnection from "@/lib/dbConfig";
 import {NextResponse} from "next/server";
 import Booking from "@/models/bookingModel";
-
+import User from "@/models/userModel";
 export async function GET(request){
     try {
         databaseConnection();
@@ -20,7 +20,9 @@ export async function GET(request){
         }else if (userRole == "Consultant"){
             query.consultantId = userId;
         }
-        const bookings = await Booking.find(query);
+        const bookings = await Booking.find(query)
+        .populate("clientId", "firstName lastName email image")
+        .populate("consultantId", "firstName lastName email image");
         return NextResponse.json({ success: true, bookings },{status:200});
     } catch (error) {
         console.error("Error fetching bookings:", error);

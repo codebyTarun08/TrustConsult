@@ -9,7 +9,7 @@ export async function GET(request){
     try {
         const {searchParams} = new URL(request.url)
         const id = searchParams.get("id");
-        console.log(id);
+       // console.log(id);
         if(!id){
             return NextResponse.json({message:"Id not found"},{status:400});
         }
@@ -18,6 +18,10 @@ export async function GET(request){
         .populate("availability")
         .populate({path:"categories",select:"name"})
        // const previousBookings = await Booking.find({consultant:id})
+       const previousBookings = await Booking.find({consultantId:id})
+       .populate("clientId","firstName lastName email image")
+       .populate("consultantId","firstName lastName email image");
+       consultantData.previousBookings = previousBookings;
         return NextResponse.json(
             {
              success:true,

@@ -33,17 +33,10 @@ const sendOtpVerificationEmail = async (email, otp) => {
         email,
         emailBody
     );
-    console.log("Mail Response: ", mailResponse);
+    //console.log("Mail Response: ", mailResponse);
     } catch (error) {
         console.error("Error sending OTP email:", error);
     }
-
 }
 
 export { sendOtpVerificationEmail };
-// otpSchema.pre("save", async function(next) {
-//     console.log("called")
-//     //Send Otp via email
-//     await sendOtpVerificationEmail(this.email, this.otp);
-//     next();
-// });

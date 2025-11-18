@@ -42,7 +42,7 @@ export const consultingData = [
     },
     {
         title: 'Every Session, A Step Forward',
-        description: 'Book sessions with top consultants, gain clarity, and turn your goals into results—one conversation at a time.',
+        description: 'Book sessions with top consultants, gain clarity, and turn your goals into results one conversation at a time.',
     },
 ];
 

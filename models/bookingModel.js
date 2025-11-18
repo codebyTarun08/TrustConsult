@@ -33,6 +33,10 @@ const bookingSchema = new mongoose.Schema(
             enum: ["unpaid", "paid"],
             default: "unpaid",
         },
+        rating:{
+            type:Number,
+            default:0,
+        },
         review:{
             type:mongoose.Schema.Types.ObjectId,
             ref:"Review"

@@ -16,9 +16,9 @@ const ChangePassword = () => {
     const submitHandler = async (data)=>{
         try {
             data.email=user?.email;
-            console.log("data: ",data)
+           // console.log("data: ",data)
             const response = await dispatch(changePassword(data));
-            console.log(response);
+           // console.log(response);
         } catch (error) {
             console.log("error in change Password: ",error);
         }
@@ -129,7 +129,7 @@ const ChangePassword = () => {
           </button>
           <button
             type="submit"
-            className="px-6 py-3 rounded-lg text-richblack-800 font-semibold bg-cyan-200 transition-all duration-200 hover:bg-cyan-500 hover:text-white"
+            className="px-3 py-[10px] md:px-6 md:py-3 rounded-lg text-richblack-800 font-semibold bg-cyan-200 transition-all duration-200 hover:bg-cyan-500 hover:text-white"
           >
             Update Password
           </button>

@@ -8,8 +8,9 @@ const clientSchema = new mongoose.Schema(
         required:true
     }
  },
-{
+ {
     timestamps: true
-});
+ }
+);
 
 export default mongoose.models.Client || mongoose.model("Client", clientSchema);

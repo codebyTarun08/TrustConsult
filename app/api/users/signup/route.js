@@ -10,7 +10,7 @@ databseConnection();
 export async function POST(request){
     try {
         const {firstName,lastName,email,password,confirmPassword,phoneNumber,role,otp} = await request.json();
-        console.log(firstName,lastName,email,password,confirmPassword,phoneNumber,role,otp)
+     //   console.log(firstName,lastName,email,password,confirmPassword,phoneNumber,role,otp)
         if(!firstName || !lastName || !email || !password || !confirmPassword || !phoneNumber || !role || !otp){
            return NextResponse.json({error: "All fields are required"}, {status: 400});
         }
@@ -51,7 +51,7 @@ export async function POST(request){
             image:`https://api.dicebear.com/5.x/initials/svg?seed=${firstName}%20${lastName}`,
         })
 
-        console.log("User: ",user);
+     //   console.log("User: ",user);
 
         return NextResponse.json(
             {

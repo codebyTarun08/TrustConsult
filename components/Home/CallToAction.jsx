@@ -140,7 +140,7 @@ const CallToAction = () => {
     };
 
     return (
-        <section className='container mx-auto px-4 py-20 text-center text-gray-200'>
+        <section className='container mx-auto md:px-4 py-20 text-center text-gray-200'>
             <motion.div
                 className='flex flex-col items-center max-w-6xl mx-auto p-8 rounded-3xl bg-gradient-to-br from-richblack-800 via-richblue-700 to-gray-900 shadow-2xl border border-gray-700'
                 variants={containerVariants}
@@ -149,10 +149,10 @@ const CallToAction = () => {
                 viewport={{ once: true, amount: 0.3 }}
             >
                 <motion.h1
-                    className='text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 font-sans leading-tight'
+                    className='text-xl md:text-2xl lg:text-4xl font-extrabold mb-4 font-sans leading-tight'
                     variants={itemVariants}
                 >
-                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-orange-600">
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-pink-800">
                         {ctaData.title}
                     </span>
                 </motion.h1>
@@ -161,13 +161,13 @@ const CallToAction = () => {
                     {/* Content Section */}
                     <div className='flex flex-col items-center lg:items-start text-center lg:text-left w-full lg:w-1/2'>
                         <motion.p
-                            className='text-lg md:text-xl text-gray-400 mb-4'
+                            className='md:text-lg text-gray-400 mb-4'
                             variants={itemVariants}
                         >
                             {ctaData.subtitle}
                         </motion.p>
                         <motion.p
-                            className='text-xl md:text-2xl font-bold text-blue-400 mb-8'
+                            className='text-xl md:text-xl font-bold text-blue-400 mb-8'
                             variants={itemVariants}
                         >
                             {ctaData.mainMessage}
@@ -183,10 +183,10 @@ const CallToAction = () => {
                                     key={index}
                                     href={button.link}
                                     className={`
-                                        w-full sm:w-auto text-center px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105
+                                        w-full sm:w-auto text-center px-6 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105
                                         ${button.isPrimary
-                                            ? 'bg-purple-600 text-white shadow-lg hover:bg-purple-700'
-                                            : 'bg-white text-purple-600 border border-purple-600 shadow-md hover:bg-gray-100'
+                                            ? 'bg-pink-500/60 border-pink-500 shadow-lg hover:bg-pink-600'
+                                            : 'bg-pink-200 text-pink-500 border border-pink-500 shadow-md hover:'
                                         }
                                     `}
                                 >

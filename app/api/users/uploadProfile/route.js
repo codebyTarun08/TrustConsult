@@ -8,12 +8,13 @@ cloudinaryConnect();
 export async function POST(request) {
   try {
     const id = request.headers.get("x-user-id");
+   //
     console.log("ID", id);
 
     const data = await request.formData();
     const image = data.get("image"); // This is a File object
-    console.log(data)
-    console.log(image)
+   // console.log(data)
+   // console.log(image)
     if (!image || !id) {
       return NextResponse.json({ message: "Image or User ID not provided" }, { status: 400 });
     }

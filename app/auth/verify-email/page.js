@@ -19,7 +19,7 @@ const Page = () => {
          if(!signupData){
             router.replace('/auth/signup')
          }
-    },[]);
+    },[signupData,router]);
     const submitHandler=(event)=>{
         event.preventDefault();
         

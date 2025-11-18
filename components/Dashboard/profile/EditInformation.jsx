@@ -14,11 +14,11 @@ const EditInformation = () => {
     const submitHandler = async (data) => {
         try {
             const response =await dispatch(updateProfileData(data))
-            console.log("Response Of Profile Updation: ",response)
+            //console.log("Response Of Profile Updation: ",response)
         } catch (error) {
             console.log(error)
         }
-        console.log("Data",data);
+        //console.log("Data",data);
     }
   return (
     <div className='w-11/12 mx-auto font-inter'>

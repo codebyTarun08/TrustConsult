@@ -9,7 +9,7 @@ const page = () => {
   
   
   return (
-    <div className=' text-white h-[calc(100vh-3.5rem)]'>
+    <div className='mt-10 lg:mt-0 ml-5 md:ml-0 text-white h-[calc(100vh-3.5rem)]'>
         <span className='flex gap-2 items-center'>
           <HighLightText text={user?.firstName} />
           <p className='text-2xl '> Profile Page</p>

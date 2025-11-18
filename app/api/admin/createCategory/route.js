@@ -7,7 +7,7 @@ export async function POST(request) {
 
     try {
         databaseConnection();
-        console.log(name, description);
+       // console.log(name, description);
         if(!name || !description){
             return NextResponse.json({ error: "Name and Description are required" }, { status: 400 });
         }

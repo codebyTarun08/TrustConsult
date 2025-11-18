@@ -41,7 +41,7 @@ import { ReactTyped } from "react-typed";
 
 const TypingHeading = () => {
   return (
-    <h2 className="mt-5 text-3xl font-crimson">
+    <p className="mt-5 text-3xl font-crimson">
       <ReactTyped
         strings={[
           "Find the Right Consultant in Minutes",
@@ -52,7 +52,7 @@ const TypingHeading = () => {
         backSpeed={30}
         loop
       />
-    </h2>
+    </p>
   )
 }
 

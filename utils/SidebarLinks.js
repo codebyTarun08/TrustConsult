@@ -6,7 +6,7 @@ export const SidebarLinks = [
     },
     {
         href: '/dashboard/setting',
-        label: 'Setting',
+        label: 'Settings',
         icon: 'VscSettingsGear'
     },
     {

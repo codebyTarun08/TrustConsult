@@ -9,11 +9,11 @@ const page = () => {
   const { user } = useSelector((state) => (state.profile));
   const [isAccount, setIsAccount] = useState(true);
   return (
-    <div className='min-h-[calc(100vh-3.5rem)] text-white font-inter'>
-      <p className='text-xl'>Settings Page</p>
-      <div className='w-11/12 mt-4 border-b border-richblack-400'></div>
+    <div className='mt-10 md:mt-0 min-h-[calc(100vh-3.5rem)] text-white font-inter'>
+      <p className='text-xl ml-5'>Settings Page</p>
+      <div className='w-11/12 mt-4 ml-5 border-b border-richblack-400'></div>
 
-      <div className="mt-10 w-11/12 border border-richblack-400 p-6 rounded-lg bg-richblack-900/50 ">
+      <div className="mt-10 md:w-11/12 w-[99%] border border-richblack-400 p-6 rounded-lg bg-richblack-900/50 ">
         {/* <div className='flex items-center gap-x-2 rounded-full border border-richblack-700 bg-richblack-800 p-1 text-richblack-200'>
   <button
     onClick={() => setIsAccount(true)}
@@ -37,7 +37,7 @@ const page = () => {
         <div className='flex justify-around items-center text-richblack-200'>
           <button
             onClick={() => setIsAccount(true)}
-            className={`
+            className={` cursor-pointer
       relative pb-2 transition-all duration-200
       ${isAccount ? 'text-richblack-5 font-semibold' : ''}
       ${isAccount ? 'after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-yellow-500' : ''}
@@ -47,7 +47,7 @@ const page = () => {
           </button>
           <button
             onClick={() => setIsAccount(false)}
-            className={`
+            className={` cursor-pointer
       relative pb-2 transition-all duration-200
       ${!isAccount ? 'text-richblack-5 font-semibold' : ''}
       ${!isAccount ? 'after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-yellow-500' : ''}
@@ -76,10 +76,10 @@ const page = () => {
       {
         user?.role === "Consultant" &&(
           <div className='my-10'>
-            <p className='text-xl'>Add Necessary Field for Consultant</p>
-            <div className='w-11/12 mt-4 border-b border-richblack-400'></div>
+            <p className='text-xl ml-5'>Add Necessary Field for Consultant</p>
+            <div className='w-11/12 ml-5 mt-4 border-b border-richblack-400'></div>
 
-            <div className="mt-10 w-11/12 border border-richblack-400 p-6 rounded-lg bg-richblack-900/50 ">
+            <div className="mt-10 md:w-11/12 w-[99%] border border-richblack-400 p-6 rounded-lg bg-richblack-900/50 ">
               <CompleteProfile consultantId={user?._id}/>
             </div>
           </div>

@@ -5,9 +5,9 @@ import { NextResponse } from "next/server";
 databseConnection();
 export async function PUT(request){
     try {
-        console.log(request.headers)
+      //  console.log(request.headers)
         const id = request.headers.get('x-user-id')
-        console.log("ID",id)
+     //   console.log("ID",id)
         const {firstName,lastName,email,phoneNumber} = await request.json();
         if(!firstName || !lastName || !email || !phoneNumber){
             return NextResponse.json(
